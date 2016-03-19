@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="page-header">
+                <h1>SemSimilar
+                    <small>semantic search engine</small>
+                </h1>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            {% if name %}
+                <h1>Hello {{ name }}!</h1>
+            {% else %}
+
+            {% endif %}
+            <input id="search" type="text" class="form-control" placeholder="Search">
+        </div>
+        <br/>
+        <div class="row">
+            <ul id="results" class="list-group">
+            </ul>
+        </div>
+    </div>
+    <script type=text/javascript>
+        $(function () {
+            $('#search').keypress(function (e) {
+                if (e.which == 13) {
+                    $.getJSON($SCRIPT_ROOT + '/search/' + $('#search').val(), {}, function (data) {
+                        $('#results').html("");
+                        data.forEach(function (item) {
+                            $('#results').append("<li class='list-group-item'>" + item + "</li>")
+                        });
+                    });
+                    return false;
+                }
+
+            });
+        });
+    </script>
+{% endblock %}

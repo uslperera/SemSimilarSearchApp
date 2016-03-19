@@ -1,0 +1,128 @@
+2016-03-19 16:47:04,223 INFO: errors [in /Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py:84]
+2016-03-19 16:49:02,216 INFO: errors [in /Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py:84]
+2016-03-19 16:50:07,058 ERROR: Exception on /search/When setting a form's opacity should I use a decimal or double [GET] [in /Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py", line 57, in search
+    results = similarity(documents, new_document, app.hal_model, 5)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/main.py", line 29, in similarity
+    results_ontology = lesk.similarity(documents=topic_documents, new_document=new_document, count=count)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 10, in similarity
+    score = __get_score(new_document, document)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 37, in __get_score
+    new_doc.title_tokens,
+AttributeError: 'Document' object has no attribute 'title_tokens'
+2016-03-19 16:50:43,857 ERROR: Exception on /search/When setting a form's opacity should I use a decimal or double [GET] [in /Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py", line 57, in search
+    results = similarity(documents, new_document, app.hal_model, 5)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/main.py", line 29, in similarity
+    results_ontology = lesk.similarity(documents=topic_documents, new_document=new_document, count=count)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 10, in similarity
+    score = __get_score(new_document, document)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 37, in __get_score
+    new_doc.title_tokens,
+AttributeError: 'Document' object has no attribute 'title_tokens'
+2016-03-19 16:51:44,026 ERROR: Exception on /search/When setting a form's opacity should I use a decimal or double [GET] [in /Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py", line 57, in search
+    results = similarity(documents, new_document, app.hal_model, 5)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/main.py", line 29, in similarity
+    results_ontology = lesk.similarity(documents=topic_documents, new_document=new_document, count=count)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 10, in similarity
+    score = __get_score(new_document, document)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 37, in __get_score
+    new_doc.title_tokens,
+AttributeError: 'Document' object has no attribute 'title_tokens'
+2016-03-19 16:53:00,393 ERROR: Exception on /search/When setting a form's opacity should I use a decimal or double [GET] [in /Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py", line 57, in search
+    results = similarity(documents, new_document, app.hal_model, 5)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/main.py", line 29, in similarity
+    results_ontology = lesk.similarity(documents=topic_documents, new_document=new_document, count=count)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 10, in similarity
+    score = __get_score(new_document, document)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 37, in __get_score
+    new_doc.title_tokens,
+AttributeError: 'Document' object has no attribute 'title_tokens'
+2016-03-19 16:53:35,915 ERROR: Exception on /search/When setting a form's opacity should I use a decimal or double [GET] [in /Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py", line 57, in search
+    results = similarity(documents, new_document, app.hal_model, 5)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/main.py", line 29, in similarity
+    results_ontology = lesk.similarity(documents=topic_documents, new_document=new_document, count=count)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 10, in similarity
+    score = __get_score(new_document, document)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 37, in __get_score
+    new_doc.title_tokens,
+AttributeError: 'Document' object has no attribute 'title_tokens'
+2016-03-19 16:54:56,063 ERROR: Exception on /search/When setting a form's opacity should I use a decimal or double [GET] [in /Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/venv/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/app/app.py", line 57, in search
+    results = similarity(documents, new_document, app.hal_model, 5)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/main.py", line 29, in similarity
+    results_ontology = lesk.similarity(documents=topic_documents, new_document=new_document, count=count)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 10, in similarity
+    score = __get_score(new_document, document)
+  File "/Users/shamal/Documents/IIT/Project/Development/myproject/semsimilar/core/similarity/knowledge/lesk.py", line 37, in __get_score
+    new_doc.title_tokens,
+AttributeError: 'Document' object has no attribute 'title_tokens'
