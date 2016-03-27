@@ -7,10 +7,11 @@ from flask import Flask, render_template, request
 import logging
 from logging import Formatter, FileHandler
 import os, json
-from semsimilar.core.textprocessor.tokenize import CodeTokenizer
-from semsimilar.core.similarity.corpus.hal import HAL
-from semsimilar.core.similarity.main import similarity
-from semsimilar.core.model.document import Document
+from semsimilar.textprocessor.tokenize import CodeTokenizer
+from semsimilar.similarity.corpus.hal import HAL
+from semsimilar.similarity.main import ss_similarity
+from semsimilar.model.document import Document
+from semsimilar.model.document_worker import parallel_process
 
 # ----------------------------------------------------------------------------#
 # App Config.
@@ -59,8 +60,8 @@ def index():
 def search(query=None):
     if query is None:
         return ""
-    new_document = Document(0, query, None, None)
-    results = similarity(documents, new_document, app.hal_model, 5)
+    new_document = Document(0, query, "", "")
+    results = ss_similarity(app.documents, new_document, app.hal_model, 5)
     query_results = []
     for top_doc, score in results:
         query_results.append(top_doc.title)
@@ -81,41 +82,49 @@ def not_found_error(error):
     return render_template('errors/404.html'), 404
 
 
-if not app.debug:
-    file_handler = FileHandler('error.log')
-    file_handler.setFormatter(
-            Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
-    )
-    app.logger.setLevel(logging.INFO)
-    file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler)
-    app.logger.info('errors')
+# if not app.debug:
+#     file_handler = FileHandler('error.log')
+#     file_handler.setFormatter(
+#             Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+#     )
+#     app.logger.setLevel(logging.INFO)
+#     file_handler.setLevel(logging.INFO)
+#     app.logger.addHandler(file_handler)
+#     app.logger.info('errors')
 
 
 def initialize_corpus(count):
     Document.set_tokenizer(CodeTokenizer())
+    Document.tags_enabled = True
+    Document.description_enabled = True
     with open(
             '/Users/shamal/Documents/IIT/Project/Development/SemSimilar/semsimilar/tests/data/100posts.json') as posts_file:
         posts = json.loads(posts_file.read())
 
-    for i, post in enumerate(posts):
-        if i == count:
-            break
-        documents.append(Document(post['Id'], post['Title'], post['Body'], post['Tags']))
+    # for i, post in enumerate(posts):
+    #     if i == count:
+    #         break
+    #     documents.append(Document(post['Id'], post['Title'], post['Body'], post['Tags']))
 
-    with open('/Users/shamal/Documents/IIT/Project/Development/SemSimilar/semsimilar/tests/data/100duplicates.json') as posts_file:
-        duplicate_posts = json.loads(posts_file.read())
+    # DUPLICATE POSTS
+    # with open('/Users/shamal/Documents/IIT/Project/Development/SemSimilar/semsimilar/tests/data/100duplicates.json') as posts_file:
+    #     duplicate_posts = json.loads(posts_file.read())
+    #
+    # for i, post in enumerate(duplicate_posts):
+    #     if i == count:
+    #         break
+    #     documents.append(Document(post['Id'], post['Title'], post['Body'], post['Tags']))
 
-    for i, post in enumerate(duplicate_posts):
-        if i == count:
-            break
-        documents.append(Document(post['Id'], post['Title'], post['Body'], post['Tags']))
+    # texts = []
+    # for doc in documents:
+    #     texts.append(" ".join(doc.stemmed_tokens))
 
-    texts = []
-    for doc in documents:
-        texts.append(" ".join(doc.get_stemmed_tokens()))
-
+    new_posts = posts[:1000]
+    posts = None
+    app.documents, texts = parallel_process(new_posts, 3)
+    new_posts = None
     app.hal_model = HAL(documents=texts)
+    texts=None
     print("---corpus created---")
 
 

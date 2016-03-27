@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../SemSimilarSearchEngine/.idea/SemSimilar Search Engine.iml" filepath="$PROJECT_DIR$/../SemSimilarSearchEngine/.idea/SemSimilar Search Engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SemSimilarSearchEngine.iml" filepath="$PROJECT_DIR$/.idea/SemSimilarSearchEngine.iml" />
     </modules>
   </component>
 </project>
