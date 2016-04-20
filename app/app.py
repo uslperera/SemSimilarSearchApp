@@ -12,6 +12,7 @@ from semsimilar.similarity.corpus.hal import HAL
 from semsimilar.similarity.main import ss_similarity
 from semsimilar.model.document import Document
 from semsimilar.model.document_worker import parallel_process
+import timeit
 
 # ----------------------------------------------------------------------------#
 # App Config.
@@ -55,13 +56,18 @@ def index():
     return render_template('pages/home.html')
 
 
+@app.route('/ask')
+def ask():
+    return render_template('pages/ask_question.html')
+
+
 @app.route('/search/')
 @app.route('/search/<query>')
 def search(query=None):
     if query is None:
         return ""
     new_document = Document(0, query, "", "")
-    results = ss_similarity(app.documents, new_document, app.hal_model, 5)
+    results = ss_similarity(app.documents, new_document, app.hal_model, 10)
     query_results = []
     for top_doc, score in results:
         query_results.append(top_doc.title)
@@ -121,11 +127,14 @@ def initialize_corpus(count):
 
     new_posts = posts[:1000]
     posts = None
+    start = timeit.default_timer()
     app.documents, texts = parallel_process(new_posts, 3)
     new_posts = None
     app.hal_model = HAL(documents=texts)
-    texts=None
+    end = timeit.default_timer()
+    texts = None
     print("---corpus created---")
+    print(end - start)
 
 
 initialize_corpus(100)

@@ -5,7 +5,11 @@
 <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 <div class=page>
+
+    <nav class="navbar navbar-inverse"><h5>SemSimilar</h5></nav>
+
     <main id="content" role="main" class="container">
+
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -21,6 +25,26 @@
         {% block content %}{% endblock %}
 
     </main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="page-header">
+                    <h1>SemSimilar
+                        <small>semantic search engine</small>
+                    </h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="/">Questions</a></li>
+                    <li role="presentation"><a href="#">Tags</a></li>
+                    <li role="presentation"><a href="#">Users</a></li>
+                    <li role="presentation"><a href="/ask">Ask Question</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
     {% block body %}{% endblock %}
     <script type=text/javascript>
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};

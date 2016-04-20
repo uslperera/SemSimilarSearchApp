@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="inputTitle">Title</label>
+                        <input type="text" class="form-control" id="inputTitle" placeholder="What's your question?">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="inputDescription" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTags">Tags</label>
+                        <input type="text" class="form-control" id="inputTags" placeholder="tags">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post Your Question</button>
+                </form>
+            </div>
+            <div class="col-md-5 col-lg-offset-1">
+                <div class="row">
+                    <ul id="results" class="list-group">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type=text/javascript>
+        $(function () {
+            $('#inputTitle').blur(function (e) {
+                $.getJSON($SCRIPT_ROOT + '/search/' + $('#inputTitle').val(), {}, function (data) {
+                    $('#results').html("");
+                    data.forEach(function (item) {
+                        $('#results').append("<li class='list-group-item'>" + item + "</li>")
+                    });
+                });
+                return false;
+
+            });
+        });
+    </script>
+{% endblock %}
