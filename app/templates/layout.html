@@ -36,10 +36,10 @@
             </div>
             <div class="col-md-4">
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="/">Questions</a></li>
-                    <li role="presentation"><a href="#">Tags</a></li>
-                    <li role="presentation"><a href="#">Users</a></li>
-                    <li role="presentation"><a href="/ask">Ask Question</a></li>
+                    <li id="questions" role="presentation"><a href="/">Questions</a></li>
+                    <li id="tags" role="presentation"><a href="#">Tags</a></li>
+                    <li id="users" role="presentation"><a href="#">Users</a></li>
+                    <li id="ask" role="presentation"><a href="/ask">Ask Question</a></li>
                 </ul>
             </div>
 
@@ -48,5 +48,6 @@
     {% block body %}{% endblock %}
     <script type=text/javascript>
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
     </script>
 </div>

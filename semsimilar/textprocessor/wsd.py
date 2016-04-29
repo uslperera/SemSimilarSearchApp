@@ -7,8 +7,8 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "uslperera@gmail.com"
 
-from nltk.wsd import lesk
 import logging
+from nltk.wsd import lesk
 
 
 def get_synsets(tokens, window):

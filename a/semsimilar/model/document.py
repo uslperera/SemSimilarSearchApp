@@ -7,10 +7,10 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "uslperera@gmail.com"
 
-import logging
 from nltk.tokenize.api import TokenizerI
 from semsimilar.textprocessor.wsd import get_synsets
-from semsimilar.textprocessor.processor import remove_custom_words, stem_tokens, remove_stopwords
+from semsimilar.textprocessor.processor import *
+import logging
 
 
 class Document(object):
@@ -164,16 +164,6 @@ class Document(object):
             Document.__tokenizer = tokenizer
 
     def remove_special_words(self, words):
-        """Remove special words from the tokens of the document
-
-        :returns: void
-
-        :Example:
-
-        >>> doc = Document(101, "PHP Session Security <duplicate>", None, None)
-        >>> doc.generate_tokens()
-        >>> doc.remove_special_words(["duplicate"])
-        """
         self.__tokens = remove_custom_words(words, self.__tokens)
         self.__synsets = get_synsets(self.__synset_tokens, self.__window)
         self.__stemmed_tokens = stem_tokens(self.__tokens)

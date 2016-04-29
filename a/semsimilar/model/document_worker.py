@@ -7,9 +7,9 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "uslperera@gmail.com"
 
-import logging
 import multiprocessing
 from semsimilar.model.document import Document
+import logging
 from semsimilar.exceptions import InvalidProcessorCount
 
 ID_KEY = "Id"
@@ -85,8 +85,9 @@ def parallel_process(posts, processors):
         logger.info("Splitting of corpus started. Corpus size is %s", len(posts))
         for i in range(processors):
             if i == processors - 1:
-                temp_posts = posts[(corpus_size / processors) * i:(i + 1) * (
-                corpus_size / processors) + corpus_size % processors]
+                temp_posts = posts[
+                             (corpus_size / processors) * i:(i + 1) * (
+                                 corpus_size / processors) + corpus_size % processors]
             else:
                 temp_posts = posts[(corpus_size / processors) * i:(i + 1) * (corpus_size / processors)]
             logger.debug("Length of the sub-corpus %s", len(temp_posts))

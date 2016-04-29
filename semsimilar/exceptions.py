@@ -7,7 +7,10 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "uslperera@gmail.com"
 
+
 class InvalidProcessorCount(Exception):
+    """Throws if the processor count given is more than the number of physical processors in the system"""
+
     def __init__(self, message):
         # Call the base class constructor with the parameters it needs
         super(InvalidProcessorCount, self).__init__(message)

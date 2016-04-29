@@ -7,9 +7,10 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "uslperera@gmail.com"
 
-import logging
 from nltk.stem.porter import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
+import stop_words
+import logging
 from nltk.corpus import stopwords
 
 # en_stop = stop_words.get_stop_words('en')

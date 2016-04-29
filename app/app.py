@@ -8,8 +8,8 @@ import logging
 from logging import Formatter, FileHandler
 import os, json
 from semsimilar.textprocessor.tokenize import CodeTokenizer
-from semsimilar.similarity.corpus.hal import HAL
-from semsimilar.similarity.main import ss_similarity
+from semsimilar.similarity_core.corpus.hal import HAL
+from semsimilar.similarity_core.main import ss_similarity
 from semsimilar.model.document import Document
 from semsimilar.model.document_worker import parallel_process
 import timeit
@@ -106,24 +106,6 @@ def initialize_corpus(count):
     with open(
             '/Users/shamal/Documents/IIT/Project/Development/SemSimilar/semsimilar/tests/data/100posts.json') as posts_file:
         posts = json.loads(posts_file.read())
-
-    # for i, post in enumerate(posts):
-    #     if i == count:
-    #         break
-    #     documents.append(Document(post['Id'], post['Title'], post['Body'], post['Tags']))
-
-    # DUPLICATE POSTS
-    # with open('/Users/shamal/Documents/IIT/Project/Development/SemSimilar/semsimilar/tests/data/100duplicates.json') as posts_file:
-    #     duplicate_posts = json.loads(posts_file.read())
-    #
-    # for i, post in enumerate(duplicate_posts):
-    #     if i == count:
-    #         break
-    #     documents.append(Document(post['Id'], post['Title'], post['Body'], post['Tags']))
-
-    # texts = []
-    # for doc in documents:
-    #     texts.append(" ".join(doc.stemmed_tokens))
 
     new_posts = posts[:1000]
     posts = None
